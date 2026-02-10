@@ -1,0 +1,168 @@
+/*
+ * app/unidades/[id]/unidad.module.css
+ * Versión Mejorada
+ */
+
+
+/* 2. Estilos Base y Contenedor Principal */
+.container {
+  max-width: 960px;
+  margin: 2rem auto 4rem auto;
+  padding: 2rem;
+  font-family: var(--font-sans);
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 6rem;
+  color: var(--text-light);
+}
+
+/* 3. Navegación "Breadcrumb" Mejorada */
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-bottom: 2.5rem;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-color-hover);
+  text-decoration: underline;
+}
+
+/* 4. Encabezado más Impactante */
+.header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2rem;
+}
+
+.numeroUnidad {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-top: 0.5rem;
+  letter-spacing: -1px;
+}
+
+/* 5. Descripción de la Unidad más Limpia */
+.descripcionUnidad {
+  line-height: 1.8;
+  color: var(--text-medium);
+  margin-bottom: 4rem;
+  background-color: var(--bg-light);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+/* --- 6. LISTA DE CLASES REDISEÑADA --- */
+.clasesSection {
+  margin-top: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+  display: inline-block;
+}
+
+.clasesList {
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.claseItem {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Columna para número, título e ícono */
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.clasesList a:last-child {
+  border-bottom: none;
+}
+
+.claseItem:hover {
+  background-color: var(--bg-light);
+  transform: scale(1.02); /* Efecto de "zoom" sutil */
+}
+
+.claseNumero {
+  background: linear-gradient(135deg, var(--primary-color), #007bff);
+  color: white;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center; /* Manera moderna de centrar */
+  flex-shrink: 0;
+}
+
+.claseTitulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.claseIcon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.claseItem:hover .claseIcon {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.noClases {
+  color: var(--text-light);
+  padding: 3rem;
+  text-align: center;
+  background-color: var(--bg-light);
+}
+
+/* 7. Estilos Globales para el contenido del CKEditor */
+.descripcionUnidad :global(p),
+.tabContent :global(p) { margin-bottom: 1rem; }
+.descripcionUnidad :global(strong),
+.tabContent :global(strong) { font-weight: 700; color: var(--text-dark); }
+.descripcionUnidad :global(ul),
+.descripcionUnidad :global(ol),
+.tabContent :global(ul),
+.tabContent :global(ol) { padding-left: 25px; margin-bottom: 1rem; }
+.descripcionUnidad :global(li),
+.tabContent :global(li) { margin-bottom: 0.5rem; }
+
+/* ... (Aquí irían el resto de tus estilos globales para tablas, etc.) ... */

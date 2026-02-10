@@ -1,0 +1,13 @@
+/* frontend/app/globals.css */
+:root {
+  /* Aquí van TODAS tus variables CSS globales */
+  --primary-color: #0d6efd;
+  --primary-color-hover: #0b5ed7;
+  --primary-color-light: #e7f3ff;
+  --text-dark: #212529;
+  --text-light: #6c757d;
+  --border-color: #dee2e6;
+  --background-light: #f8f9fa;
+  /* ... etc ... */
+}
+

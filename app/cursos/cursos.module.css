@@ -1,0 +1,109 @@
+/* app/cursos/cursos.module.css */
+
+/* Contenedor principal de la página */
+.pageContainer {
+  width: 100%;
+  max-width: 1200px; /* Limita el ancho máximo para una mejor legibilidad en pantallas grandes */
+  margin: 0 auto; /* Centra el contenedor en la página */
+  padding: 2rem 1.5rem; /* Espaciado interno (vertical y horizontal) */
+}
+
+/* Encabezado con el título y subtítulo */
+.header {
+  text-align: center;
+  margin-bottom: 3rem; /* Espacio debajo del encabezado antes de la grilla de cursos */
+}
+
+/* Título principal de la página */
+.pageTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #ffffff; /* Un color oscuro pero no negro puro */
+  letter-spacing: -1px;
+}
+
+/* Subtítulo o texto descriptivo */
+.pageSubtitle {
+  font-size: 1.2rem;
+  color: #6c757d; /* Un gris suave para el texto secundario */
+  max-width: 600px;
+  margin: 0 auto; /* Centra el subtítulo si es más corto que el ancho máximo */
+}
+
+/* La grilla que contendrá todas las tarjetas de los cursos */
+.cursosGrid {
+  display: grid;
+  /*
+    Esta es la magia de la grilla responsiva:
+    - Crea tantas columnas como quepan.
+    - Cada columna tendrá un tamaño mínimo de 300px.
+    - Las columnas crecerán equitativamente para llenar el espacio disponible (1fr).
+  */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem; /* Espacio entre las tarjetas */
+}
+
+/* Estilo para cuando no se encuentran cursos */
+.noCursos {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+  background-color: #f8f9fa; /* Un fondo gris claro para destacar el mensaje */
+  border: 1px dashed #dee2e6;
+  border-radius: 8px;
+  color: #6c757d;
+}
+
+.noCursos p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+
+/* --- Media Queries para Responsividad --- */
+
+/* Para tablets y dispositivos más pequeños */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2.2rem;
+  }
+  .pageSubtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Para móviles */
+@media (max-width: 480px) {
+  .cursosGrid {
+    /* En pantallas muy pequeñas, forzamos a una sola columna */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .pageContainer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* cursos.module.css */
+.refreshButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--primary-color, #007bff);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.refreshButton:hover {
+  background-color: var(--primary-color-hover, #0056b3);
+}
+
+.refreshButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

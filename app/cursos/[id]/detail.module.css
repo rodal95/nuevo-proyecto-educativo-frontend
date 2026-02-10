@@ -1,0 +1,259 @@
+/* Usamos variables para una paleta de colores consistente y fácil de modificar */
+
+.container {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  font-family: var(--font-sans);
+}
+.loading, .error {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 5rem;
+  color: var(--text-light);
+}
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.title {
+  font-size: clamp(2rem, 5vw, 3.2rem); /* Tipografía fluida */
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+.profesores {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+.profesores span {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+.mainContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+  align-items: flex-start; /* Alinea los items al inicio */
+}
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.image {
+  object-fit: cover;
+}
+
+/* --- SIDEBAR MEJORADO --- */
+.sidebar {
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  position: sticky; /* Sidebar "pegajosa" */
+  top: 2rem; /* Espacio desde la parte superior */
+}
+.estado {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.estadoBadge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--primary-color-light);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-left: 0.5rem;
+}
+.enrollButton {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: var(--success-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(32, 201, 151, 0.3);
+}
+.enrollButton:hover {
+  background-color: var(--success-color-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(32, 201, 151, 0.4);
+}
+.metadata {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+.metadata li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.metadata li:last-child {
+  border-bottom: none;
+}
+
+/* --- SISTEMA DE PESTAÑAS (TABS) MEJORADO --- */
+.tabsContainer {
+  margin-top: 3rem;
+}
+.tabButtons {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+.tabButton {
+  padding: 1rem 1.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tabButton:hover {
+  color: var(--text-dark);
+}
+.tabButton.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+.tabContent {
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+/* Estilo para el HTML que viene de la BD */
+.tabContent :global(p) { margin-bottom: 1rem; }
+.tabContent :global(strong) { font-weight: 700; color: var(--text-dark); }
+.tabContent :global(ul) { padding-left: 25px; margin-bottom: 1rem; }
+.tabContent :global(li) { margin-bottom: 0.5rem; }
+/* --- ESTILOS PARA TABLAS DENTRO DEL CONTENIDO HTML --- */
+/* (Añadir al final de detail.module.css) */
+
+/* Estilo para el contenedor de la tabla */
+.tabContent :global(table) {
+  width: 100%;
+  border-collapse: collapse; /* <-- MUY IMPORTANTE: une los bordes de las celdas en una sola línea */
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil opcional */
+  border-radius: var(--radius); /* Bordes redondeados para el contenedor */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen a las celdas */
+}
+
+/* Estilo para todas las celdas (encabezados y datos) */
+.tabContent :global(th),
+.tabContent :global(td) {
+  border: 1px solid var(--border-color); /* <-- Borde para cada celda */
+  padding: 0.8rem 1rem; /* Espaciado interno para que no se vea apretado */
+  text-align: left; /* Alineación estándar del texto */
+}
+
+/* Estilo específico para los encabezados de la tabla (la primera fila) */
+.tabContent :global(th) {
+  background-color: var(--bg-light); /* Fondo ligeramente gris para los encabezados */
+  font-weight: 600; /* Texto en negrita para los encabezados */
+  color: var(--text-dark);
+}
+
+/* Estilo opcional para filas alternas (efecto "cebra" para mejorar legibilidad) */
+.tabContent :global(tr:nth-child(even)) {
+  background-color: var(--bg-light);
+}
+
+@media (max-width: 900px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static; /* Desactivamos el sticky en móvil */
+  }
+}
+
+/* --- ESTILOS PARA LA NUEVA SECCIÓN DE UNIDADES --- */
+/* (Añadir al final de detail.module.css, antes de @media) */
+
+.unidadesSection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.unidadesTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 1rem 0;
+}
+
+.unidadesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.unidadItem {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.unidadItem:last-child {
+  border-bottom: none;
+}
+
+.unidadOrden {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+  flex-shrink: 0; /* Evita que se encoja */
+}
+
+.unidadTitulo {
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.breadcrumb {
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.breadcrumb a {
+  color: var(--primary-color, #007bff);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color: var(--primary-color-hover, #0056b3);
+}
+/* ... (todos tus estilos existentes) ... */
+
+/* Añade esta nueva clase al final del archivo */
+.tabHeader {
+  display: flex;
+  justify-content: flex-end; /* Alinea el botón a la derecha */
+  margin-bottom: 24px;      /* Añade un espacio entre el botón y el contenido */
+}
