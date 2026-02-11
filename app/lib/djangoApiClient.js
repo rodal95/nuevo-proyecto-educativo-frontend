@@ -6,7 +6,7 @@ const djangoApi = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // Opcional: la petición fallará si tarda más de 10 segundos
+
 });
 
 // Aquí es donde en un futuro podrías añadir los interceptors
