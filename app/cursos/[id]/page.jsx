@@ -56,17 +56,7 @@ export default function CursoDetailPage() {
       </header>
       
       <main className={styles.mainContent}>
-        <div className={styles.imageWrapper}>
-          <Image
-            src={imagenUrl}
-            alt={`Portada de ${curso.titulo}`}
-            fill
-            sizes="(max-width: 900px) 100vw, 60vw"
-            className={styles.image}
-            priority
-            unoptimized // <-- ¡ESTA ES LA SOLUCIÓN!
-          />
-        </div>
+
         
         <aside className={styles.sidebar}>
             {curso.unidades && curso.unidades.length > 0 && (
